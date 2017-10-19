@@ -2,6 +2,7 @@ import csv
 import os
 import pendulum
 import collections
+import numpy as np
 
 
 class Generator():
@@ -9,28 +10,84 @@ class Generator():
 		reader = csv.DictReader(open(path))
 		self._site_data = collections.OrderedDict()
 		for row in reader:
-			self._site_data[row['dt']] = row['energyExport']
+			self._site_data[row['dt']] = float(row['energyExport'])
 		self.site_name = path.split('.csv')[0]
+		self.result = {}
 	
-	def getGeneration(self, dt):
+	def _getGeneration(self, dt):
 		if str(dt) in self._site_data:
 			return self._site_data[str(dt)]
 		else:
 			return 0
+	
+	def getGeneration(self, dt, period_mins):
+		endDt = dt.copy().add(minutes=(period_mins))
+		# Ensure the time period is a multiple of the dataset data ie. 5 minute. 
+		assert period_mins % 5 == 0, "generatorPeriod_mins must be a multiple of 5. s"
+		total = 0
+		while time < endDt:
+			total += self._getGeneration(time)
+		return total
+
 
 class Consumer():
 	def __init__(self, path):
 		reader = csv.DictReader(open(path))
 		self._site_data = collections.OrderedDict()
 		for row in reader:
-			self._site_data[row['dt']] = row['energyImport']
+			self._site_data[row['dt']] = float(row['energyImport'])
 		self.site_name = path.split('.csv')[0]
+		self.result = {}
 	
-	def getConsumption(self, dt):
+	def _getConsumption(self, dt):
 		if str(dt) in self._site_data:
 			return self._site_data[str(dt)]
 		else:
 			return 0
+	
+	def getConsumption(self, dt, period_mins):
+		endDt = dt.copy().add(minutes=(period_mins))
+		# Ensure the time period is a multiple of the dataset data ie. 5 minute. 
+		assert period_mins % 5 == 0
+		total = 0
+		while time < endDt:
+			total += self._getConsumption(time)
+		return total
+
+
+
+
+
+def fractionAllocation(consumers, generators, startDt, endDt):
+	time = startDt
+	# Throw error if dates entered the wrong way round. 
+	assert startDt < endDt
+	while time < endDt:
+		# Step time forwad by 5 mins. 
+		time = time.copy().add(minutes=5)
+		
+		# Setup here
+		# get total consumption and total generation
+		total_consumption = sum(consumer.getConsumption(time) for consumer in consumers)
+		total_generation = sum(generator.getGeneration(time) for generator in generators)\
+		# Calculate the network and local solar use in total. 
+		apparent_network_import = max(total_consumption - total_generation, 0)
+		apparent_network_export = max(total_generation - total_consumption, 0)
+		apparent_local_energy = min(total_consumption,total_generation)
+		# Verify that consumption is the sum of import and local gen. 
+		np.testing.assert_allclose(total_consumption, apparent_network_import + apparent_local_energy, rtol=1e-5, atol=0)
+		
+		# Algorithm begins here
+		# Calculate the local solar fraction 
+		consumer_p2p_fraction = apparent_local_energy / total_consumption
+
+
+		# print the results. 
+		print time, total_consumption, total_generation, apparent_network_import, apparent_network_export, p2p_fraction
+		
+		
+
+		# If there is no network import, all loads
 
 
 # Iterate over all files in the data directory and add to sites dict. 
@@ -47,13 +104,31 @@ for filename in os.listdir(data_directory):
     else:
         continue
 
-testDate = pendulum.parse('2017-10-15T10:00:00+00:00')
-print "Generation"
-for gen in generators:
-	print gen.getGeneration(testDate), gen.site_name
-print "Consumption"
-for con in consumers:
-	print con.getConsumption(testDate), con.site_name
+startDate = pendulum.parse('2017-10-15T10:00:00+00:00')
+endDate = startDate.copy().add(days=1)
+
+fractionAllocation(consumers, generators, startDate, endDate)
+
+# print "Generation"
+# for gen in generators:
+# 	print gen.getGeneration(testDate), gen.site_name
+# print "Consumption"
+# for con in consumers:
+# 	print con.getConsumption(testDate), con.site_name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # # Find latest start date and earliest end date.
