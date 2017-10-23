@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bokeh Plot</title>
+        
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.css" type="text/css" />
+        
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.10.min.js"></script>
+<script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script>
+        <style>
+          html {
+            width: 100%;
+            height: 100%;
+          }
+          body {
+            width: 90%;
+            height: 100%;
+            margin: auto;
+          }
+        </style>
+    </head>
+    <body>
+        
+        <div class="bk-root">
+            <div class="bk-plotdiv" id="5c91627b-6541-40fa-b59c-ca1a7d19dced"></div>
+        </div>
+        
+        <script type="text/javascript">
+            (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  var docs_json = {"1bac566f-7d50-42b4-af9d-9ae4189bf35c":{"roots":{"references":[{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"plot":null,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"5278006a-21c4-4315-baa2-ff38c697212b","type":"BoxAnnotation"},{"attributes":{"source":{"id":"01a73318-c708-4136-b35f-8f395f4a8217","type":"ColumnDataSource"}},"id":"2c574db5-9905-4576-8217-5dc46f18429c","type":"CDSView"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"},"ticker":{"id":"6c0d3125-57fb-4828-9216-9f7c98959c19","type":"CategoricalTicker"}},"id":"dd8727d9-0af1-4d1f-aa94-2a3ea564fb54","type":"Grid"},{"attributes":{"fill_color":{"field":"fruits","transform":{"id":"f348892a-1d13-461f-84de-dc8fad07a3c9","type":"CategoricalColorMapper"}},"line_color":{"value":"white"},"top":{"field":"counts"},"width":{"value":0.9},"x":{"field":"fruits"}},"id":"28c331cf-29de-4e86-b02e-f7cef358eac0","type":"VBar"},{"attributes":{},"id":"2a2d7c27-da5d-46dc-a96c-a95c2bba39d1","type":"BasicTickFormatter"},{"attributes":{"callback":null,"column_names":["counts","fruits"],"data":{"counts":[0.0004615204650120466,0.0005438748913661219,0.0005922435226718187,0.000439158602808046,0.0018479964882529344,0.00046852554054935497,0.0005758290984135185,0.0009061575178873509],"fruits":["data/GerardHaus 50W34301_31427","data/CoogeeHome 4000W47914_43666","data/JBJC 50W2281_35972","data/JG Air Conditioner 50W51047_46473","data/Princes 5280W55008_50075","data/JG Total Consumption 50W Consumption51047_46421","data/Rooster House 3900W41908_38364","data/Bizza Solar 4320W54807_49827"]}},"id":"01a73318-c708-4136-b35f-8f395f4a8217","type":"ColumnDataSource"},{"attributes":{"callback":null,"start":0},"id":"f2d2f49f-f3f9-4404-84ed-544b164f07c3","type":"DataRange1d"},{"attributes":{},"id":"6041b537-9cc3-4977-8f80-4629561a88af","type":"CategoricalScale"},{"attributes":{"overlay":{"id":"5278006a-21c4-4315-baa2-ff38c697212b","type":"BoxAnnotation"}},"id":"cd983fb1-01d5-42be-9810-4c43d78e59e9","type":"BoxZoomTool"},{"attributes":{},"id":"6c0d3125-57fb-4828-9216-9f7c98959c19","type":"CategoricalTicker"},{"attributes":{"dimension":1,"plot":{"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"},"ticker":{"id":"dec38293-3035-4468-9003-fc1577008f57","type":"BasicTicker"}},"id":"44ebd7b2-ccb9-492b-9264-829d8dbcf270","type":"Grid"},{"attributes":{"below":[{"id":"60dfdc90-799f-49f7-888e-80e079027de5","type":"CategoricalAxis"}],"left":[{"id":"a3117968-e0e9-43c1-b4b9-bbef910c93aa","type":"LinearAxis"}],"plot_height":350,"renderers":[{"id":"60dfdc90-799f-49f7-888e-80e079027de5","type":"CategoricalAxis"},{"id":"dd8727d9-0af1-4d1f-aa94-2a3ea564fb54","type":"Grid"},{"id":"a3117968-e0e9-43c1-b4b9-bbef910c93aa","type":"LinearAxis"},{"id":"44ebd7b2-ccb9-492b-9264-829d8dbcf270","type":"Grid"},{"id":"5278006a-21c4-4315-baa2-ff38c697212b","type":"BoxAnnotation"},{"id":"0ed027a2-920f-4668-8b22-7b6bf50ab8cc","type":"Legend"},{"id":"93986eb5-ae9c-471c-b274-becc1c008053","type":"GlyphRenderer"}],"title":{"id":"8baa2737-09f6-43ea-86bf-e46cc132bcd4","type":"Title"},"toolbar":{"id":"f4b7e569-f734-4552-80a3-b8c7858f0a56","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"a3abf91e-0bba-4387-9629-b50e3946dafd","type":"FactorRange"},"x_scale":{"id":"6041b537-9cc3-4977-8f80-4629561a88af","type":"CategoricalScale"},"y_range":{"id":"f2d2f49f-f3f9-4404-84ed-544b164f07c3","type":"DataRange1d"},"y_scale":{"id":"17d2dea0-f152-4daf-954d-d85a42572265","type":"LinearScale"}},"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"},{"attributes":{"items":[{"id":"3260fd4a-b653-4be4-b9f2-a58665f15231","type":"LegendItem"}],"location":"top_center","orientation":"horizontal","plot":{"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"}},"id":"0ed027a2-920f-4668-8b22-7b6bf50ab8cc","type":"Legend"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"counts"},"width":{"value":0.9},"x":{"field":"fruits"}},"id":"3600488d-fa20-45b1-8719-5c05efb42682","type":"VBar"},{"attributes":{},"id":"d738866e-2ba2-47e5-a7eb-653ca23e94cc","type":"WheelZoomTool"},{"attributes":{},"id":"32aaf717-fde1-4c20-a7fd-7a5975be4dcd","type":"ResetTool"},{"attributes":{},"id":"a273d00b-e2ec-445e-8fcc-b3f558b8bd88","type":"CategoricalTickFormatter"},{"attributes":{"formatter":{"id":"a273d00b-e2ec-445e-8fcc-b3f558b8bd88","type":"CategoricalTickFormatter"},"plot":{"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"},"ticker":{"id":"6c0d3125-57fb-4828-9216-9f7c98959c19","type":"CategoricalTicker"}},"id":"60dfdc90-799f-49f7-888e-80e079027de5","type":"CategoricalAxis"},{"attributes":{},"id":"91850ca9-772b-4fa5-9112-b04c095c0383","type":"HelpTool"},{"attributes":{"factors":["data/GerardHaus 50W34301_31427","data/CoogeeHome 4000W47914_43666","data/JBJC 50W2281_35972","data/JG Air Conditioner 50W51047_46473","data/Princes 5280W55008_50075","data/JG Total Consumption 50W Consumption51047_46421","data/Rooster House 3900W41908_38364","data/Bizza Solar 4320W54807_49827"],"palette":["#3288bd","#99d594","#e6f598","#fee08b","#fc8d59","#d53e4f"]},"id":"f348892a-1d13-461f-84de-dc8fad07a3c9","type":"CategoricalColorMapper"},{"attributes":{"data_source":{"id":"01a73318-c708-4136-b35f-8f395f4a8217","type":"ColumnDataSource"},"glyph":{"id":"28c331cf-29de-4e86-b02e-f7cef358eac0","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3600488d-fa20-45b1-8719-5c05efb42682","type":"VBar"},"selection_glyph":null,"view":{"id":"2c574db5-9905-4576-8217-5dc46f18429c","type":"CDSView"}},"id":"93986eb5-ae9c-471c-b274-becc1c008053","type":"GlyphRenderer"},{"attributes":{},"id":"dec38293-3035-4468-9003-fc1577008f57","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"id":"9dc71511-63da-4b3a-b97b-31f1520a9979","type":"PanTool"},{"id":"d738866e-2ba2-47e5-a7eb-653ca23e94cc","type":"WheelZoomTool"},{"id":"cd983fb1-01d5-42be-9810-4c43d78e59e9","type":"BoxZoomTool"},{"id":"9bacefe3-ff1c-4a39-b063-300047577a07","type":"SaveTool"},{"id":"32aaf717-fde1-4c20-a7fd-7a5975be4dcd","type":"ResetTool"},{"id":"91850ca9-772b-4fa5-9112-b04c095c0383","type":"HelpTool"}]},"id":"f4b7e569-f734-4552-80a3-b8c7858f0a56","type":"Toolbar"},{"attributes":{"plot":null,"text":"Fruit Counts"},"id":"8baa2737-09f6-43ea-86bf-e46cc132bcd4","type":"Title"},{"attributes":{},"id":"9dc71511-63da-4b3a-b97b-31f1520a9979","type":"PanTool"},{"attributes":{},"id":"17d2dea0-f152-4daf-954d-d85a42572265","type":"LinearScale"},{"attributes":{},"id":"9bacefe3-ff1c-4a39-b063-300047577a07","type":"SaveTool"},{"attributes":{"label":{"field":"fruits"},"renderers":[{"id":"93986eb5-ae9c-471c-b274-becc1c008053","type":"GlyphRenderer"}]},"id":"3260fd4a-b653-4be4-b9f2-a58665f15231","type":"LegendItem"},{"attributes":{"formatter":{"id":"2a2d7c27-da5d-46dc-a96c-a95c2bba39d1","type":"BasicTickFormatter"},"plot":{"id":"7956203f-8a56-4eed-b9a1-eb4de191794f","subtype":"Figure","type":"Plot"},"ticker":{"id":"dec38293-3035-4468-9003-fc1577008f57","type":"BasicTicker"}},"id":"a3117968-e0e9-43c1-b4b9-bbef910c93aa","type":"LinearAxis"},{"attributes":{"callback":null,"factors":["data/GerardHaus 50W34301_31427","data/CoogeeHome 4000W47914_43666","data/JBJC 50W2281_35972","data/JG Air Conditioner 50W51047_46473","data/Princes 5280W55008_50075","data/JG Total Consumption 50W Consumption51047_46421","data/Rooster House 3900W41908_38364","data/Bizza Solar 4320W54807_49827"]},"id":"a3abf91e-0bba-4387-9629-b50e3946dafd","type":"FactorRange"}],"root_ids":["7956203f-8a56-4eed-b9a1-eb4de191794f"]},"title":"Bokeh Application","version":"0.12.10"}};
+                  var render_items = [{"docid":"1bac566f-7d50-42b4-af9d-9ae4189bf35c","elementid":"5c91627b-6541-40fa-b59c-ca1a7d19dced","modelid":"7956203f-8a56-4eed-b9a1-eb4de191794f"}];
+              
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                }
+              
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      embed_document(root);
+                      clearInterval(timer);
+                    }
+                    attempts++;
+                    if (attempts > 100) {
+                      console.log("Bokeh: ERROR: Unable to embed document because BokehJS library is missing")
+                      clearInterval(timer);
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+        
+        </script>
+    </body>
+</html>
